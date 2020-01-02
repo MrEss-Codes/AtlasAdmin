@@ -1,0 +1,62 @@
+<base-card>
+  <base-card-title>
+    <h2>Account</h2>
+    <div class="mdl-card__subtitle">Your account information</div>
+  </base-card-title>
+  <base-card-body>
+    <form action="#" class="form">
+      <div class="form__article">
+        <h3>Personal information</h3>
+
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="firstName" value="Luke"/>
+            <label class="mdl-textfield__label" for="firstName">First name</label>
+          </div>
+
+          <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="secondName" value="Skywalker"/>
+            <label class="mdl-textfield__label" for="secondName">Second name</label>
+          </div>
+        </div>
+
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="birthday" value="25 May, 1977"/>
+            <label class="mdl-textfield__label" for="birthday">Birthday</label>
+          </div>
+
+          <div class="mdl-cell mdl-cell--6-col">
+            <material-angular-select [data]="['Male', 'Female']"
+                                  [label]="'Gender'"
+                                  [name]="'gender'"
+                                  [currentValue]="'Male'"
+                                  [fixHeight]="true"></material-angular-select>
+          </div>
+        </div>
+      </div>
+      <div class="form__article employer-form__contacts">
+        <h3>Contact Email</h3>
+
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--9-col input-group">
+            <i class="material-icons pull-left">mail_outline</i>
+
+            <div class="mdl-textfield mdl-js-textfield pull-left">
+              <input class="mdl-textfield__input" type="text" id="email" value="MrBossMan@bossmail.com"/>
+              <label class="mdl-textfield__label" for="email">Email</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form__action">
+        <button id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Save
+        </button>
+      </div>
+    </form>
+  </base-card-body>
+</base-card>
