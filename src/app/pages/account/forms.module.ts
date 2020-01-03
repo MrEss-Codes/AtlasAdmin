@@ -5,7 +5,7 @@ import { MaterialAngularSelectModule } from 'material-angular-select';
 
 import { ThemeModule } from 'theme';
 
-import { EmployerFormComponent } from './employer-form';
+import { EmployerFormComponent } from './account-form';
 import { FormsComponent } from './forms.component';
 
 @NgModule({

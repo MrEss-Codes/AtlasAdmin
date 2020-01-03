@@ -4,10 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutsModule } from './shared/layouts';
 import { CommonLayoutComponent } from './shared/layouts/common-layout';
 import { DashboardComponent } from './pages/dashboard';
-import { FormsComponent } from './pages/forms';
+import { FormsComponent } from './pages/account';
 import {ProductsComponent} from './pages/products';
 import {CreateProductComponent} from './pages/products/productcreate';
 import { UpdateProductComponent } from './pages/products/productupdate';
+import {LoginComponent} from "./pages/authpages/login/login.component";
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { UpdateProductComponent } from './pages/products/productupdate';
             { path: 'productcreate', component: CreateProductComponent, pathMatch: 'full' },
             { path: 'productupdate/:id', component: UpdateProductComponent, pathMatch: 'full' },
             { path: 'account', component: FormsComponent, pathMatch: 'full' },
-
+            { path: 'login', component: LoginComponent, pathMatch: 'full'},
             { path: '**', redirectTo: '/authpages/404' },
         ] },
       ],

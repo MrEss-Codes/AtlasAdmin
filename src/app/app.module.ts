@@ -7,10 +7,11 @@ import { AuthInterceptor, AuthService, FakeBackendInterceptor } from './shared/s
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardModule } from './pages/dashboard';
-import { FormsModule } from './pages/forms';
+import { FormsModule } from './pages/account';
 import { ProductsModule } from './pages/products';
 import { CreateProductModule } from './pages/products/productcreate';
 import { UpdateProductModule } from './pages/products/productupdate';
+import { PagesModule} from "./pages/authpages/pages.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { UpdateProductModule } from './pages/products/productupdate';
     UpdateProductModule,
     FormsModule,
     HttpClientModule,
+    PagesModule,
   ],
   providers: [
     AuthService,

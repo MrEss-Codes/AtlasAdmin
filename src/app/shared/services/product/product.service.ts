@@ -5,7 +5,7 @@ import { Product } from '../../Models/product';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  apiUrl = 'https://localhost:5001/api/';
+  apiUrl = 'http://altas.gear.host/api/';
 
   constructor(private http: HttpClient) { }
 
