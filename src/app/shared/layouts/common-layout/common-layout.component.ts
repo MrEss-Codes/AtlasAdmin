@@ -15,14 +15,10 @@ export class CommonLayoutComponent implements OnInit {
               private router: Router) {}
 
   public ngOnInit() {
-    this.authService.userData.subscribe(user => this.user = user ? user : {
-      username: 'admin',
-      email: 'admin@admin.com',
-      password: '1234'
-    });
+    this.authService.userData.subscribe(user => this.user = user);
   }
   public logout() {
     this.authService.logout()
-      .subscribe(res => this.router.navigate(['/authpages/login']));
+      .subscribe(res => this.router.navigate(['/login']));
   }
 }

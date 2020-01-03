@@ -9,22 +9,21 @@ import {ProductsComponent} from './pages/products';
 import {CreateProductComponent} from './pages/products/productcreate';
 import { UpdateProductComponent } from './pages/products/productupdate';
 import {LoginComponent} from "./pages/authpages/login/login.component";
+import {AuthGuard} from "./shared/services/auth/auth.guard";
 
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
       [
-        { path: '', redirectTo: 'app/dashboard', pathMatch: 'full' },
+        { path: '', redirectTo: 'app/dashboard', pathMatch: 'full'},
         { path: 'app', component: CommonLayoutComponent, children: [
-            { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
-            { path: 'products', component: ProductsComponent, pathMatch: 'full' },
-            { path: 'productcreate', component: CreateProductComponent, pathMatch: 'full' },
-            { path: 'productupdate/:id', component: UpdateProductComponent, pathMatch: 'full' },
-            { path: 'account', component: FormsComponent, pathMatch: 'full' },
-            { path: 'login', component: LoginComponent, pathMatch: 'full'},
-            { path: '**', redirectTo: '/authpages/404' },
-        ] },
+            { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+            { path: 'products', component: ProductsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+            { path: 'productcreate', component: CreateProductComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+            { path: 'productupdate/:id', component: UpdateProductComponent, pathMatch: 'full',canActivate: [AuthGuard] },
+            { path: 'account', component: FormsComponent, pathMatch: 'full', canActivate: [AuthGuard] },],
+        },
       ],
       { useHash: true },
     ),

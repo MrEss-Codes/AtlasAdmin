@@ -2,9 +2,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AuthInterceptor, AuthService, FakeBackendInterceptor } from './shared/services';
+import { AuthInterceptor, AuthService} from './shared/services';
 
 import { AppRoutingModule } from './app-routing.module';
+import { PagesRoutingModule} from "./pages/authpages/pages-routing.module";
 import { AppComponent } from './app.component';
 import { DashboardModule } from './pages/dashboard';
 import { FormsModule } from './pages/account';
@@ -18,6 +19,7 @@ import { PagesModule} from "./pages/authpages/pages.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    PagesRoutingModule,
     DashboardModule,
     ProductsModule,
     CreateProductModule,
@@ -31,11 +33,6 @@ import { PagesModule} from "./pages/authpages/pages.module";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: FakeBackendInterceptor,
       multi: true,
     },
   ],

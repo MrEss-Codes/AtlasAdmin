@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../../shared/services';
 import { BlankLayoutCardComponent } from 'app/shared/components/blank-layout-card';
+import {loginInput} from "../../../shared/Models/loginInput";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent extends BlankLayoutCardComponent implements OnInit {
   private password;
   public emailPattern = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$';
   public error: string;
-
+  logininfo: loginInput;
   constructor(private authService: AuthService,
               private fb: FormBuilder,
               private router: Router) {
@@ -43,8 +44,9 @@ export class LoginComponent extends BlankLayoutCardComponent implements OnInit {
 
   public login() {
     this.error = null;
+    this.logininfo = this.loginForm.value;
     if (this.loginForm.valid) {
-      this.authService.loginTest(this.loginForm.value())
+      this.authService.loginTest(this.logininfo)
         .subscribe(res => {
             localStorage.setItem("idToken", res.idToken);
             localStorage.setItem("email", res.email);
