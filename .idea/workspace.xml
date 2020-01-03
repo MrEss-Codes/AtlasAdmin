@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c71e6e84-0b9a-455c-9e25-14e7b7c29847" name="Default Changelist" comment="" />
+    <list default="true" id="c71e6e84-0b9a-455c-9e25-14e7b7c29847" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/pages/account/account-form/employer-form.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/account/account-form/employer-form.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/account/account-form/employer-form.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/account/account-form/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/account/forms.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/account/forms.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/pages/account/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/forms/employer-form/employer-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/forms/employer-form/employer-form.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/forms/employer-form/employer-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/forms/employer-form/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/forms/forms.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/forms/forms.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/forms/index.ts" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,7 +28,7 @@
     <favorites_list name="AtlasAdminProject" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/atlasadminproject" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -100,6 +117,7 @@
       <workItem from="1577969246970" duration="14000" />
       <workItem from="1577969265258" duration="4000" />
       <workItem from="1577969379912" duration="13000" />
+      <workItem from="1578068768105" duration="243000" />
     </task>
     <servers />
   </component>
@@ -173,13 +191,14 @@
       <screen x="-2560" y="-483" width="2560" height="1417" />
     </state>
     <state x="-822" y="-469" width="808" height="1389" key="com.intellij.history.integration.ui.views.RecentChangeDialog/-2560.-483.2560.1417/0.23.1440.812@-2560.-483.2560.1417" timestamp="1576870869433" />
-    <state x="-2510" y="-438" width="1977" height="1132" key="dock-window-1" timestamp="1577969387013">
+    <state x="-2510" y="-438" width="1977" height="1132" key="dock-window-1" timestamp="1578068850436">
       <screen x="-2560" y="-483" width="2560" height="1417" />
     </state>
     <state x="14" y="37" width="1412" height="786" key="dock-window-1/-2560.-483.2560.1417/0.23.1440.814@-2560.-483.2560.1417" timestamp="1577386370488" />
     <state x="14" y="36" width="750" height="794" key="dock-window-1/-2560.-483.2560.1417/0.23.1440.816@-2560.-483.2560.1417" timestamp="1577549400875" />
     <state x="5" y="26" width="896" height="819" key="dock-window-1/-2560.-483.2560.1417/0.23.1440.823@-2560.-483.2560.1417" timestamp="1577640890551" />
     <state x="28" y="49" width="1112" height="659" key="dock-window-1/-2560.-483.2560.1417/0.23.1440.825@-2560.-483.2560.1417" timestamp="1577895277460" />
+    <state x="-2510" y="-438" width="1977" height="1132" key="dock-window-1/-2560.-483.2560.1417/0.23.1440.826@-2560.-483.2560.1417" timestamp="1578068850436" />
     <state x="-2510" y="-438" width="1977" height="1132" key="dock-window-1/-2560.-483.2560.1417/0.23.1440.827@-2560.-483.2560.1417" timestamp="1577969387013" />
   </component>
 </project>
