@@ -26,26 +26,13 @@ export class AuthService {
     return this.isLogged$.value;
   }
 
-  public loginTest(data: loginInput): Observable<User> {
+  public login(data: loginInput): Observable<User> {
     return this.http.post<User>(this.url + '/login', data).pipe(map( user => {
       this.isLogged$.next(true);
       return user;
     }));
   }
 
-  public login(data): Observable<any> {
-    return this.http.post(`${this.url}/login`, data)
-      .pipe(
-        map((res: { user: any, token: string }) => {
-          this.user = res.user;
-          localStorage.setItem(tokenName, res.token);
-          // only for example
-          localStorage.setItem('username', res.user.username);
-          localStorage.setItem('email', res.user.email);
-          this.isLogged$.next(true);
-          return this.user;
-        }));
-  }
 
   public logout() {
         localStorage.clear();
