@@ -4,6 +4,8 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
+import {User} from "../../Models/user";
+import {loginInput} from "../../Models/loginInput";
 
 const tokenName = 'token';
 
@@ -22,6 +24,10 @@ export class AuthService {
 
   public get isLoggedIn(): boolean {
     return this.isLogged$.value;
+  }
+
+  public loginTest(data: loginInput): Observable<User> {
+    return this.http.post<User>(this.url + '/login', data);
   }
 
   public login(data): Observable<any> {
