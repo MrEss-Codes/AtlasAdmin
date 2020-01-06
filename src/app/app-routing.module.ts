@@ -4,12 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutsModule } from './shared/layouts';
 import { CommonLayoutComponent } from './shared/layouts/common-layout';
 import { DashboardComponent } from './pages/dashboard';
-import { FormsComponent } from './pages/account';
-import {ProductsComponent} from './pages/products';
-import {CreateProductComponent} from './pages/products/productcreate';
+import { ProductsComponent } from './pages/products';
+import { CreateProductComponent } from './pages/products/productcreate';
 import { UpdateProductComponent } from './pages/products/productupdate';
-import {LoginComponent} from "./pages/authpages/login/login.component";
-import {AuthGuard} from "./shared/services/auth/auth.guard";
+import { AuthGuard } from "./shared/services/auth/auth.guard";
 
 
 @NgModule({
@@ -22,7 +20,7 @@ import {AuthGuard} from "./shared/services/auth/auth.guard";
             { path: 'products', component: ProductsComponent, pathMatch: 'full', canActivate: [AuthGuard]},
             { path: 'productcreate', component: CreateProductComponent, pathMatch: 'full', canActivate: [AuthGuard] },
             { path: 'productupdate/:id', component: UpdateProductComponent, pathMatch: 'full',canActivate: [AuthGuard] },
-            { path: 'account', component: FormsComponent, pathMatch: 'full', canActivate: [AuthGuard] },],
+            ],
         },
       ],
       { useHash: true },

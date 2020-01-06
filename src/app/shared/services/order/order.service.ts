@@ -2,15 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductStatus } from '../../Models/productStatus';
+import { dataFilter } from '../../Models/dataFilter';
+import {environment} from "../../../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
-  apiUrl = 'https://localhost:5001/api/';
+  private apiUrl = `${environment.apiBaseUrl}/api/`;
 
   constructor(private http: HttpClient) { }
 
-  getAllOrders(): Observable<ProductStatus[]> {
-    return this.http.get<ProductStatus[]>(this.apiUrl + 'productStatus');
+
+  getProductStatusFiltered(LastItemId: string): Observable<ProductStatus[]> {
+    return this.http.get<ProductStatus[]>(this.apiUrl + 'productStatus' + LastItemId);
   }
 
   getOrderByID(id: string): Observable<ProductStatus> {

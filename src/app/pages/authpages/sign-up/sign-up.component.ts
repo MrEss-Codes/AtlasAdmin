@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../shared/services';
 
 import { BlankLayoutCardComponent } from 'app/shared/components/blank-layout-card';
+import {loginInput} from "../../../shared/Models/loginInput";
 
 @Component({
   selector: 'app-sign-up',
@@ -16,9 +17,9 @@ export class SignUpComponent extends BlankLayoutCardComponent implements OnInit 
   public signupForm: FormGroup;
   private email;
   private password;
-  private username;
   public emailPattern = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$';
   public error: string;
+  private signup: loginInput;
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
@@ -32,11 +33,10 @@ export class SignUpComponent extends BlankLayoutCardComponent implements OnInit 
         Validators.pattern(this.emailPattern),
         Validators.maxLength(20),
       ]),
-      username: new FormControl('', [Validators.required, Validators.maxLength(10)]),
     });
     this.email = this.signupForm.get('email');
     this.password = this.signupForm.get('password');
-    this.username = this.signupForm.get('username');
+
   }
 
   public ngOnInit() {
@@ -49,8 +49,9 @@ export class SignUpComponent extends BlankLayoutCardComponent implements OnInit 
   public login() {
     this.error = null;
     if (this.signupForm.valid) {
-      this.authService.signup(this.signupForm.getRawValue())
-        .subscribe(res => this.router.navigate(['/app/dashboard']),
+      this.signup = this.signupForm.getRawValue()
+      this.authService.signup(this.signup)
+        .subscribe(res => this.router.navigate(['/login']),
                    error => this.error = error.message);
     }
   }

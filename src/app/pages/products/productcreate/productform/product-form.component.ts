@@ -2,6 +2,7 @@ import { Component, HostBinding } from '@angular/core';
 import { ProductService } from '../../../../shared/services/product/product.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { HttpClient } from "@angular/common/http/src/client";
 
 @Component({
   selector: 'app-product-form',
@@ -10,6 +11,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ProductFormComponent {
   @HostBinding('class.productform') private readonly productForm = true;
+
+  base64: string | ArrayBuffer;
 
   createProductForm = new FormGroup({
 
@@ -23,7 +26,7 @@ export class ProductFormComponent {
                               });
 
 
-  constructor(private service: ProductService, private router: Router) {}
+  constructor(private service: ProductService, private router: Router,) {}
 
   ngOnInit() {
   }
@@ -31,8 +34,18 @@ export class ProductFormComponent {
 
   save() {
     const newProduct = this.createProductForm.value;
-
+    newProduct.picture = this.base64;
     this.service.createProduct(newProduct).subscribe(o => { this.router.navigateByUrl('/app/products'); } );
   }
+  picturetobase64(fileInput: any) {
+    var reader = new FileReader();
+    reader.readAsDataURL(<File>fileInput.target.files[0]);
+    reader.onload = (_event) => {
+      this.base64 = reader.result;
+      console.log(this.base64)
+    }
 
-}
+    }
+  }
+
+

@@ -2,17 +2,16 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AuthInterceptor, AuthService} from './shared/services';
+import { AuthInterceptor, AuthService } from './shared/services';
 
 import { AppRoutingModule } from './app-routing.module';
-import { PagesRoutingModule} from "./pages/authpages/pages-routing.module";
+import { PagesRoutingModule } from "./pages/authpages/pages-routing.module";
 import { AppComponent } from './app.component';
 import { DashboardModule } from './pages/dashboard';
-import { FormsModule } from './pages/account';
 import { ProductsModule } from './pages/products';
 import { CreateProductModule } from './pages/products/productcreate';
 import { UpdateProductModule } from './pages/products/productupdate';
-import { PagesModule} from "./pages/authpages/pages.module";
+import { PagesModule } from "./pages/authpages/pages.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,16 +23,17 @@ import { PagesModule} from "./pages/authpages/pages.module";
     ProductsModule,
     CreateProductModule,
     UpdateProductModule,
-    FormsModule,
     HttpClientModule,
     PagesModule,
   ],
   providers: [
     AuthService,
     {
+
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
+
     },
   ],
   bootstrap: [AppComponent],

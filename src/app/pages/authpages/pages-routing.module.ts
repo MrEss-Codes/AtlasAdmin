@@ -7,6 +7,7 @@ import { ErrorComponent } from './error';
 import { ForgotPasswordComponent } from './forgot-password';
 import { LoginComponent } from './login';
 import { SignUpComponent } from './sign-up';
+import {AuthGuard} from "../../shared/services/auth";
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { SignUpComponent } from './sign-up';
         children: [
           { path: '404', component: ErrorComponent, pathMatch: 'full' },
           { path: 'login', component: LoginComponent, pathMatch: 'full' },
-          { path: 'sign-up', component: SignUpComponent, pathMatch: 'full' },
+          { path: 'sign-up', component: SignUpComponent, pathMatch: 'full', canActivate: [AuthGuard] },
           { path: 'forgot-password', component: ForgotPasswordComponent, pathMatch: 'full' },
           { path: '**', redirectTo: '404' },
         ],

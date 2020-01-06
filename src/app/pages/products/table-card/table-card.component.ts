@@ -25,12 +25,16 @@ export class TableCardComponent implements OnInit {
   products: Product[];
 
   //comment
-  navigateCreate() {
-    this.router.navigateByUrl("/app/productcreate")
+  loadMore() {
+    let last = this.products[this.products.length-1];
+    const id = last.id
+    const LastItemId = "?OrderBy=LastItemId=" + id
+    this.service.getAllProducts(LastItemId).subscribe(res => {this.products = [...this.products, ...res]})
   }
 
 
   ngOnInit() {
-  this.service.getAllProducts().subscribe(o => { this.products = o; });
+    const filter = "?OrderBy=Price&SearchWord="
+  this.service.getAllProducts(filter).subscribe(o => { this.products = o; });
   }
 }

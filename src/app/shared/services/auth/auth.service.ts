@@ -7,7 +7,7 @@ import { environment } from '../../../../environments/environment';
 import {User} from "../../Models/user";
 import {loginInput} from "../../Models/loginInput";
 
-const tokenName = 'idtoken';
+const tokenName = 'idToken';
 
 @Injectable({
   providedIn: 'root',
@@ -42,18 +42,11 @@ export class AuthService {
       };
 
 
-  public signup(data) {
-    return this.http.post(`${this.url}/signup`, data)
-      .pipe(
-        map((res: { user: any, token: string }) => {
-          this.user = res.user;
-          localStorage.setItem(tokenName, res.token);
-          // only for example
-          localStorage.setItem('username', res.user.username);
-          localStorage.setItem('email', res.user.email);
-          this.isLogged$.next(true);
-          return this.user;
-        }));
+  public signup(data: loginInput): Observable<User> {
+    return this.http.post<User>(this.url + '/register', data).pipe(map( user => {
+      this.isLogged$.next(true);
+      return user;
+    }));
   }
 
   public get authToken(): string {
@@ -61,13 +54,11 @@ export class AuthService {
   }
 
   public get userData(): Observable<any> {
-    // send current user or load data from backend using token
     return this.loadUser();
   }
 
   private loadUser(): Observable<any> {
-    // use request to load user data with token
-    // it's fake and useing only for example
+    // Get's email from localStorage
     if (localStorage.getItem('email')) {
       this.user = {
         email: localStorage.getItem('email'),

@@ -3,7 +3,7 @@
     <h2>Product</h2>
   </base-card-title>
   <base-card-body>
-    <form [formGroup]="createProductForm" (ngSubmit)="save()">
+    <form [formGroup]="createProductForm">
       <div class="form__article">
         <h3>Product information</h3>
 
@@ -37,15 +37,14 @@
             <label class="mdl-textfield__label" for="price">Price </label>
           </div>
           <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="picture" formControlName="picture" required/>
-            <label class="mdl-textfield__label" for="picture">picture</label>
+            <input class="mdl-button" type="file" name="image" (change)="picturetobase64($event)"/>
           </div>
         </div>
       </div>
 
       <div class="form__action">
-        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-          Save
+        <button (click)="save()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Create
         </button>
       </div>
     </form>
