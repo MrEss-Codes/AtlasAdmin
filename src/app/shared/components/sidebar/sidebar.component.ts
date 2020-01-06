@@ -8,7 +8,7 @@ import { SidebarComponent as BaseSidebarComponent } from 'theme/components/sideb
   templateUrl: '../../../../theme/components/sidebar/sidebar.component.html',
 })
 export class SidebarComponent extends BaseSidebarComponent {
-  public title = 'ATLAS';
+  public title = 'ALTAS';
   public menu = [
     { name: 'Dashboard', link: '/app/dashboard', icon: 'dashboard' },
     { name: 'Products', link: '/app/products', icon: 'local_offer'},

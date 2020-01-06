@@ -41,6 +41,7 @@ export class TableCardComponent {
     let last = this.productstatuses[this.productstatuses.length-1];
     const id = last.id
     this.LastItemId = "?LastItemId=" + id
-    this.service.getProductStatusFiltered(this.LastItemId).subscribe(res => {this.productstatuses = [...this.productstatuses, ...res]})
+    this.service.getProductStatusFiltered(this.LastItemId).subscribe(
+      res => {this.productstatuses = [...this.productstatuses, ...res]})
   }
 }
